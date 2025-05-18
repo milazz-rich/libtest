@@ -1,0 +1,36 @@
+{
+  "name": "@milaz-rich/libtest",
+  "version": "1.0.1",
+  "description": "",
+  "main": "lib/index.cjs",
+  "exports": {
+    "import": {
+      "default": "./lib/index.esm.js",
+      "types": "./lib/types/index.d.ts"
+    },
+    "require": {
+      "default": "./lib/index.cjs",
+      "types": "./lib/types/index.d.ts"
+    }
+  },
+  "files": ["lib"],
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milazz-rich/libtest.git"
+  },
+  "author": "milaz-rich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/milazz-rich/libtest/issues"
+  },
+  "homepage": "https://github.com/milazz-rich/libtest#readme",
+  "devDependencies": {
+    "rollup": "^4.41.0",
+    "rollup-plugin-delete": "^3.0.1",
+    "rollup-plugin-typescript2": "^0.36.0"
+  }
+}
