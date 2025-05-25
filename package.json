@@ -13,10 +13,13 @@
       "types": "./lib/types/index.d.ts"
     }
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "type": "module",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
   "devDependencies": {
     "rollup": "^4.41.0",
     "rollup-plugin-delete": "^3.0.1",
-    "rollup-plugin-typescript2": "^0.36.0"
+    "rollup-plugin-typescript2": "^0.36.0",
+    "standard-version": "^9.5.0"
   }
 }
