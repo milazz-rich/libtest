@@ -9,6 +9,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    if: github.actor != 'github-actions'
     name: Release
     runs-on: ubuntu-latest
 
@@ -40,6 +41,9 @@ jobs:
 
       - name: Push version changes and tags
         run: git push --follow-tags origin main
+
+      - name: Build package
+        run: npm run build
 
       - name: Publish to NPM
         run: npm publish
