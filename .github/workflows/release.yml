@@ -9,7 +9,6 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
-    if: github.actor != 'github-actions'
     name: Release
     runs-on: ubuntu-latest
 
@@ -19,6 +18,13 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GIT_ACTIONS_TOKEN }}
+    
+      - name: Exit if it's a release commit
+        run: |
+          if git log -1 --pretty=%B | grep -q 'chore(release):'; then
+            echo "Release commit detected. Skipping workflow."
+            exit 0
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
