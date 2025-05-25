@@ -35,7 +35,7 @@ jobs:
       - name: Generate release version
         run: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTIONS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push version changes and tags
         run: git push --follow-tags origin main
