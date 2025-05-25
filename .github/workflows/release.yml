@@ -45,7 +45,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTIONS_TOKEN }}
 
-      - name: Push version changes and tags
+      - name: Ensure develop branch is checked out and up to date
+        run: |
+          git fetch origin
+          git checkout develop || git checkout -b develop
+          git merge main
+
+      - name: Push version changes and tags to develop
         run: git push --follow-tags origin develop
 
       - name: Build package
